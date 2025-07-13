@@ -171,8 +171,27 @@ chmod +x setup_docker.sh
 - 데이터 정규화를 통한 중복 제거 및 일관성 보장
 - 인덱스와 JOIN 을 통한 조회 성능 최적화
 
+<br>
 
+---
 
+### 3. DB 접속 최소화와 실패 전략
 
+#### Bulk insert
+<img width="536" height="472" alt="image" src="https://github.com/user-attachments/assets/53deeca3-10c4-41bc-8e00-04270b31facb" />
+
+- Bulk insert 를 활용하여 1번의 트랜잭션으로 대규모 데이터 삽입
+- 최소한의 데이터베이스 접근
+- 병목 현상 최소화
+
+<br>
+
+#### Individual insert 
+<img width="609" height="580" alt="image" src="https://github.com/user-attachments/assets/83dd2fd5-9051-4c29-b61b-f72e50638498" />
+<img width="838" height="330" alt="image" src="https://github.com/user-attachments/assets/851b682f-1334-4cb2-aaea-7c62d7b41686" />
+
+- Bulk insert 의 경우 하나의 데이터라도 잘못되면 전부 rollback. 실패시 어떠한 데이터인지 찾기 어려움
+- Bulk insert 실패시, 해당 함수를 통해 개별로 insert 진행하고, 실패한 데이터를 JSON 파일로 저장
+- 디버깅 및 데이터 전처리 효과
 
 
