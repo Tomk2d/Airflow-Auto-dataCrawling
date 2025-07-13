@@ -1,4 +1,4 @@
-# WRTN Crack Crawling Project
+# Crack Crawling Project
 
 Crack 플랫폼의 캐릭터, 카테고리, 컬렉션 데이터를 크롤링하고 데이터베이스에 저장하는 데이터 파이프라인 프로젝트입니다.
 
